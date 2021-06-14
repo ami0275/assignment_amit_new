@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.moviebag.unofficial.data.model.uimodel.MovieViewItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/movieItemMediumHeight"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:clipChildren="false"
+        app:cardCornerRadius="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageViewMoviePoster"
+                android:layout_width="@dimen/movieItemWidth"
+                android:layout_height="@dimen/movieItemHeight"
+                app:applyCorner="@{true}"
+                app:imageUrl="@{movie.imagePath}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@color/colorHelper" />
+
+            <TextView
+                android:id="@+id/text_author"
+                android:text="@{movie.title}"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:layout_constraintLeft_toRightOf="@+id/imageViewMoviePoster"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="@tools:sample/full_names"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/text_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{movie.releaseDate}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintBottom_toBottomOf="@+id/text_author"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/text_author"
+                app:layout_constraintTop_toBottomOf="@+id/text_author"
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/language"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{movie.language}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintBottom_toBottomOf="@+id/text_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/text_content"
+                app:layout_constraintTop_toBottomOf="@+id/text_content"
+                tools:text="@tools:sample/lorem" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/ratingBarVoteAverage"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:numStars="5"
+                android:rating="4"
+                android:stepSize="0.1"
+
+                app:layout_constraintStart_toStartOf="@+id/language"
+                app:layout_constraintTop_toBottomOf="@+id/language"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>

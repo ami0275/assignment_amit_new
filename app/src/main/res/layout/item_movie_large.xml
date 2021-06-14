@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="movie"
+            type="com.moviebag.unofficial.data.model.uimodel.MovieViewItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintDimensionRatio="1:1">
+
+        <ImageView
+            android:id="@+id/imageViewMoviePoster"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/movieItemLargeHeight"
+            app:applyCorner="@{true}"
+            app:imageUrl="@{movie.imagePath}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintEnd_toEndOf="@id/imageViewMoviePoster"
+            app:layout_constraintStart_toStartOf="@id/imageViewMoviePoster"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewMoviePoster"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/title"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginStart="@dimen/margin_12dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{movie.title}"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/textSizeLarge"
+                app:layout_constraintEnd_toEndOf="@id/imageViewMoviePoster"
+                app:layout_constraintStart_toStartOf="@id/imageViewMoviePoster"
+                app:layout_constraintBottom_toTopOf="@+id/releaseDate"
+                tools:text="Batman" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/releaseDate"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{movie.releaseDate}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSizeNormal"
+                android:layout_marginStart="@dimen/margin_12dp"
+                android:layout_marginBottom="@dimen/margin_12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/imageViewMoviePoster"
+                app:layout_constraintStart_toStartOf="@id/imageViewMoviePoster"
+                tools:text="Batman" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
