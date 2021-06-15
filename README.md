@@ -6,7 +6,7 @@ MVVM design pattern with Kotlin.
 - ViewModel
 - LiveData
 - DataBinding
-- Navigation
+- Navigation Graph
 - Pagination
 - RxJava
 - Retrofit
